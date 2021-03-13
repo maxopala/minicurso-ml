@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 
 # Carrega os dados em uma matriz
-dados = np.loadtxt('datasets/digits-classe_str.csv', delimiter=',', dtype=str)
+dados = np.loadtxt('datasets/digits.csv', delimiter=',', dtype=str)
 
 # No dataset tem 65 colunas.
 # As primeiras 64 se referem aos 64 segmentos das imagens 8x8
@@ -47,3 +47,10 @@ disp = metrics.plot_confusion_matrix(classificador, pixels, numeros)
 disp.figure_.suptitle("Matriz de Confusão")
 # print(f"Matriz de confusão:\n{disp.confusion_matrix}")
 plt.show()
+
+teste = classificador.predict([
+    [0, 7, 14, 12, 12, 1, 0, 0, 0, 4, 8, 0, 0, 0, 0, 0, 0, 4, 10, 4, 2, 0, 0, 0, 0, 2, 11, 8, 12, 9, 0, 0, 0, 0, 0, 0,
+     0, 12, 4, 0, 0, 0, 0, 0, 0, 5, 10, 0, 0, 2, 7, 1, 0, 10, 6, 0, 0, 0, 6, 13, 12, 11, 0, 0]
+])
+
+print(f"5 do Max = {teste[0]}")
